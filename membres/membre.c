@@ -7,7 +7,7 @@ typedef struct formation
 {
 	char * code;
 	char * intitule;
-	int annee;	
+	char * annee;	
 	struct formation * suiv;
 } * formation;
 
@@ -25,7 +25,7 @@ typedef struct membre
 
  //cette fonction nous permet de creer une liste vide des membres
 membre creerListeMembreLC(){
-	membre l = (membre)malloc(sizeof(struct membre));
+	membre l = (membre)malloc(sizeof(struct membre) * 50);
 	l = NULL;
 	return l;
 }
@@ -49,7 +49,7 @@ membre insererClasseLC(membre m, formation f)
 }
 
 //creer une nouvelle formation
-formation creerFormationLC (char * code, char * intitule, int annee)
+formation creerFormationLC (char * code, char * intitule, char * annee)
 {
 	formation f =(formation)malloc(sizeof(struct formation));;
 	f->code = code;
@@ -193,4 +193,34 @@ membre insererMembreLC(membre l, membre m)
 		l=m;
 	}
 	return l;
+}
+
+//afficher formation
+void afficherFormation(formation f){
+	formation form;
+	form = f;
+	if (form != NULL)
+	{
+		while(form != NULL){
+			printf("Code Formation :  %s\n",form->code );
+			printf("Intitule Formation :  %s\n",form->intitule );
+			printf("Année Formation :  %s\n",form->annee );
+			form = form->suiv;
+		}
+	}
+}
+
+//afficher un membre 
+void afficherMembre(membre mb){
+
+	membre tmp;
+	printf("Code membre : %s \n", mb->numero );
+	if (tmp != NULL)
+	{
+		printf("Nom :  %s\n", mb->nom);
+		printf("Prenom :  %s\n", mb->prenom);
+		printf("Adresse :  %s\n", mb->adresse);
+		afficherFormation(mb->classe);
+	}
+
 }
