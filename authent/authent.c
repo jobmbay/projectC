@@ -33,3 +33,7 @@ _Bool checklogin(char* login,char* password){
     // retourne vrai si combinaison trouvée sinon faux
     return trouve;
 }
+
+void inscription(FILE * fichier){
+
+}

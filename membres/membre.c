@@ -203,8 +203,11 @@ void afficherFormation(formation f){
 	{
 		while(form != NULL){
 			printf("Code Formation :  %s\n",form->code );
+			printf("\n");
 			printf("Intitule Formation :  %s\n",form->intitule );
+			printf("\n");
 			printf("Année Formation :  %s\n",form->annee );
+			printf("\n");
 			form = form->suiv;
 		}
 	}
@@ -214,13 +217,22 @@ void afficherFormation(formation f){
 void afficherMembre(membre mb){
 
 	membre tmp;
+	printf("\n");
+	printf("------------------------------------\n");
 	printf("Code membre : %s \n", mb->numero );
+	printf("------------------------------------\n");
 	if (tmp != NULL)
 	{
+		printf("\n");
 		printf("Nom :  %s\n", mb->nom);
+		printf("\n");
 		printf("Prenom :  %s\n", mb->prenom);
+		printf("\n");
 		printf("Adresse :  %s\n", mb->adresse);
+		printf("\n");
 		afficherFormation(mb->classe);
+		printf("--------------------------------\n");
+		printf("\n");
 	}
 
 }
