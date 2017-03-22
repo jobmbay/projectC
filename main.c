@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <myconio.h>
 #include "membres/membre.h"
 //#include "saveInFile/saveInFile.h"
 //#include "authent/authent.h"
@@ -8,7 +9,7 @@
 
 int main()
 {
-	membre l = creerListeMembreLC(); 
+	/*membre l = creerListeMembreLC(); 
 	membre m = creerMembreLC ("772186320","Diop", "Mbaye", "Malika");
 	formation f1 = creerFormationLC("info1", "DUT1Iformatique", 2014);
 	formation f2 = creerFormationLC("info2", "DUT2Iformatique", 2015);
@@ -35,8 +36,8 @@ int main()
 		printf("prenom %s", l->prenom);
 		printf("adresse %s", l->adresse);
 		l=l->suiv;
-	}
-	/*//FILE * auth = fopen(cheminauth, "a+");
-	//FILE * membres = fopen(cheminmembres, "a+");*/ 
+	}*/
+	printf("First hello\n");
+	delay(2000);
 	return 0;
 }
