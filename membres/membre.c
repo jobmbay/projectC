@@ -72,6 +72,111 @@ membre creerMembreLC (char * numero, char * nom, char * prenom, char * adresse)
 	return m;
 }
 
+//rechercher membre
+membre rechercherMembreLC(membre mb, char *numero)
+{
+	membre m=mb;
+	if(m!=NULL)
+	{
+		while(m!=NULL)
+		{
+			if(strcmp(m->numero,numero)==0)
+				{
+					return m;
+				}
+			m=m->suiv;
+		}
+	}
+	return NULL;
+}
+
+//modifier membre
+membre modifierMembreLC(membre mb, char *numero)
+{
+	membre m=mb;
+	if(m!=NULL)
+	{
+		while(m!=NULL)
+		{
+			if(strcmp(m->numero,numero)==0)
+				{
+					int nb;
+					char chaine[10];
+					do
+					{
+						printf("Choisir le champ de modification\n");
+						printf("1 - Nom\n");
+						printf("2 - Prenom\n");
+						printf("3 - Adresse\n");
+						printf("4 - Annuler\n");
+						scanf("%d",&nb);
+					}
+					while(nb<=0 || nb >4);
+					switch (nb) {
+						case 1: printf("Entrer le nouveau nom\n");
+								scanf("%s",chaine);
+								m->nom=chaine;
+								return m;
+								break;
+						case 2: printf("Entrer le nouveau prenom\n");
+								scanf("%s",m->prenom);
+								return m;
+								break;
+						case 3: printf("Entrer le nouveau adresse\n");
+								scanf("%s",m->adresse);
+								return m;
+								break;
+						case 4: return m;
+								break;
+						default : printf("Pas de modification\n");
+						break;
+
+					}
+					return m;
+				}
+			m=m->suiv;
+		}
+	}
+	return NULL;
+}
+
+//supprimer membre
+membre supprimerMembreLC(membre mb, char *numero)
+{
+	membre m=mb;
+	if(m!=NULL)
+	{
+		if(strcmp(m->numero,numero)==0)
+		{
+			mb= m->suiv;
+			return mb;
+		}
+		while(m->suiv!=NULL)
+		{
+			if(m->suiv->suiv!=NULL)
+			{
+				if(strcmp(m->suiv->numero,numero)==0)
+					{
+						printf("1\n");
+						m->suiv= m->suiv->suiv;
+						return mb;
+					}
+			}
+			else
+			{
+				if(strcmp(m->suiv->numero,numero)==0)
+					{
+						printf("2\n");
+						m->suiv=NULL;
+						return mb;
+					}
+			}
+			m=m->suiv;
+		}
+
+	}
+	return mb;
+}
 //inserer un membre dans la liste
 membre insererMembreLC(membre l, membre m)
 {
