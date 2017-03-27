@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "design/design.h"
+//#include "design/design.h"
 #include "membres/membre.h"
 #include "saveInFile/saveInFile.h"
 #include "authent/authent.h"
 
 char * cheminAuthent = "fichiers/authentification.txt";
+char * cheminMembre = "fichiers/membres.txt";
 
 int main()
 {
-    bienvenue();
-    auth();
 	membre l = creerListeMembreLC();
 	membre p = creerListeMembreLC();
+	membre recupereMembreFichier = creerListeMembreLC();
 	membre m = creerMembreLC ("772186320","Diop", "Mbaye", "Malika");
 
 	formation f1 = creerFormationLC("info1", "DUT1Iformatique", "2014/2015");
@@ -47,13 +47,21 @@ int main()
 		l=l->suiv;
 	}
 
-	/*FILE * authent = fopen(cheminAuthent, "w+");
+	//FILE * authent = fopen(cheminAuthent, "w+");
 	FILE * membres = fopen(cheminMembre, "w+");
-	FILE * chaineMembre;
+	//FILE * chaineMembre;
 
 	ajoutMembreFichier(p,membres);
 
-	//ajoutMembreFichier(l,membres);
-	deserialize(lireMembreFichier(p));*/
+	/*printf("recuperation membre dans le fichier : \n\n");
+
+	recupereMembreFichier = lireMembreFichier(chaineMembre);
+
+	while(recupereMembreFichier != NULL)
+	{
+		afficherMembre(recupereMembreFichier);
+		recupereMembreFichier = recupereMembreFichier->suiv;
+	}*/
+
 	return 0;
 }
