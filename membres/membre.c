@@ -117,24 +117,26 @@ membre modifierMembreLC(membre mb, char *numero)
                 switch (nb) {
                     case 1: printf("Entrer le nouveau nom\n");
                         scanf("%s",chaine);
-                        m->nom=chaine;
-                        return m;
+                        m->nom = chaine;
+                        return mb;
                         break;
                     case 2: printf("Entrer le nouveau prenom\n");
-                        scanf("%s",m->prenom);
-                        return m;
+                        scanf("%s",chaine);
+                        m->prenom = chaine;
+                        return mb;
                         break;
                     case 3: printf("Entrer le nouveau adresse\n");
-                        scanf("%s",m->adresse);
-                        return m;
+                        scanf("%s",chaine);
+                        m->adresse = chaine;
+                        return mb;
                         break;
-                    case 4: return m;
+                    case 4: return mb;
                         break;
                     default : printf("Pas de modification\n");
                         break;
                         
                 }
-                return m;
+                return mb;
             }
             m=m->suiv;
         }
@@ -215,7 +217,7 @@ void afficherFormation(formation f){
     }
 }
 
-//afficher un membre 
+//afficher un membre
 void afficherMembre(membre mb){
     
     membre tmp = (membre)malloc(sizeof(struct membre)*1000);

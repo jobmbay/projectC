@@ -10,3 +10,4 @@ membre supprimerMembreLC(membre mb, char *numero);
 membre modifierMembreLC(membre mb, char *numero);
 void afficherFormation(formation f);
 void afficherMembre(membre mb);
+void afficherMembreBis(membre mb);

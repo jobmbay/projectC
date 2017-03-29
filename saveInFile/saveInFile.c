@@ -104,9 +104,9 @@ void ajoutMembreFichier(membre mb, FILE * fichier){
             }
             str2 = "";
             tmp = tmp->suiv;
-            fclose(fichier);
         }
     }
+    fclose(fichier);
 }
 
 /*
@@ -115,7 +115,7 @@ void ajoutMembreFichier(membre mb, FILE * fichier){
  * return : une chaine
  */
 membre lireMembreFichier(FILE * fichier){
-	
+    fichier = fopen(cheminMembre, "r");
     membre liste = creerListeMembreLC();
     if (fichier == NULL )
     {
@@ -128,7 +128,7 @@ membre lireMembreFichier(FILE * fichier){
         if(strlen(chaine) != 0) {
             membre m = (membre)malloc(sizeof(struct membre));
             m = deserialize(chaine);
-            liste = insererMembreLC(liste,m);		
+            liste = insererMembreLC(liste,m);       
         }
     }
     fclose(fichier);
